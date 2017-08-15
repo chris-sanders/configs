@@ -71,6 +71,9 @@ Plugin 'stephpy/vim-yaml'
 " All the golang things
 Plugin 'fatih/vim-go'
 
+" monokai colorscheme
+Plugin 'sickill/vim-monokai'
+
 " For the below, you'll need to enter the checked out directory
 " once it's been installed by Vundle, and run ./install.py --all.
 " The readme details the deps you need to install under Ubuntu.
@@ -102,7 +105,7 @@ if has('gui_running')
     set guifont=Roboto\ Mono\ for\ Powerline\ 12
 endif
 
-"colorscheme monokai
+colorscheme monokai
 
 let loaded_matchparen = 1
 
