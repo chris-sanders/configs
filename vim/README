@@ -1,0 +1,10 @@
+This needs Vundle in ~/.vim/bundle/Vundle.vim
+  `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
+  For the first launch of vim, you need to do :VundleInstall to get all the modules installed.
+
+For the YouCompleteMe module, install the native bindings:
+from the ~/.vim/bundle/YouCompleteMe directory.
+  `./install.py --clang-completer --gocode-completer`
+
+flake8 needs to be installed for python flake8 testing
+  `apt install flake8`
