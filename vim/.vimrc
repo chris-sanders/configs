@@ -172,3 +172,5 @@ set statusline+=%*
 
 au BufRead *.md setlocal spell
 au BufRead *.markdown setlocal spell
+
+autocmd BufWritePre *.py %s/\s\+$//e
