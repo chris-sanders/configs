@@ -144,6 +144,7 @@ let g:syntastic_quiet_messages = {'level': 'warnings'}
 let g:syntastic_python_python_exec = '/usr/bin/python3'
 let g:syntastic_python_flake8_exe = '/usr/bin/python3 -m flake8'
 let g:syntastic_python_pylint_exec = '/usr/bin/pylint3'
+" let g:syntastic_python_checkers = ['pylint', 'flake8']
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_semantic_triggers =  {
@@ -174,3 +175,8 @@ au BufRead *.md setlocal spell
 au BufRead *.markdown setlocal spell
 
 autocmd BufWritePre *.py %s/\s\+$//e
+" autocmd BufWritePost *.py call Flake8()
+
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
+
