@@ -4,6 +4,7 @@
 declare -A repos
 repos=(
 ["https://github.com/chris-sanders/configs.git"]="$HOME/src/configs" 
+["https://github.com/chris-sanders/maas-lxd.git"]="$HOME/src/maas-lxd" 
 ["https://github.com/VundleVim/Vundle.vim.git"]="$HOME/.vim/bundle/Vundle.vim" 
 ["https://github.com/sickill/vim-monokai.git"]="$HOME/src/vim-monokai"
 ["https://github.com/chris-sanders/charm-interface-ceph-mds.git"]="$HOME/src/juju/charms/interfaces/ceph-mds"
