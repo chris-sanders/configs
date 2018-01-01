@@ -8,8 +8,8 @@ repos=(
 ["https://github.com/sickill/vim-monokai.git"]="$HOME/src/vim-monokai"
 ["https://github.com/chris-sanders/charm-interface-ceph-mds.git"]="$HOME/src/juju/charms/interfaces/ceph-mds"
 ["https://github.com/chris-sanders/charm-ceph-fs.git"]="$HOME/src/juju/charms/layers/charm-ceph-fs"
-["https://github.com/chris-sanders/charm-ceph-mon.git"]="$HOME/src/juju/charms/nolayer/charm-ceph-mon"
-["https://github.com/chris-sanders/charm-ceph-osd.git"]="$HOME/src/juju/charms/nolayer/charm-ceph-osd"
+["https://github.com/chris-sanders/charm-ceph-mon.git"]="$HOME/src/juju/charms/nolayer/ceph-mon"
+["https://github.com/chris-sanders/charm-ceph-osd.git"]="$HOME/src/juju/charms/nolayer/ceph-osd"
 )
 
 # Clone repos
