@@ -7,6 +7,7 @@ repos=(
 ["https://github.com/chris-sanders/maas-lxd.git"]="$HOME/src/maas-lxd" 
 ["https://github.com/VundleVim/Vundle.vim.git"]="$HOME/.vim/bundle/Vundle.vim" 
 ["https://github.com/sickill/vim-monokai.git"]="$HOME/src/vim-monokai"
+["https://github.com/openstack-charmers/openstack-on-lxd.git"]="$HOME/src/openstack-on-lxd"
 ["https://github.com/chris-sanders/charm-interface-ceph-mds.git"]="$HOME/src/juju/charms/interfaces/ceph-mds"
 ["https://github.com/chris-sanders/charm-ceph-fs.git"]="$HOME/src/juju/charms/layers/charm-ceph-fs"
 ["https://github.com/chris-sanders/charm-ceph-mon.git"]="$HOME/src/juju/charms/nolayer/ceph-mon"
