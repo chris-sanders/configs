@@ -74,6 +74,9 @@ Plugin 'fatih/vim-go'
 " monokai colorscheme
 Plugin 'sickill/vim-monokai'
 
+" Don't change indents when pasting
+Plugin 'ConradIrwin/vim-bracketed-paste'
+
 " For the below, you'll need to enter the checked out directory
 " once it's been installed by Vundle, and run ./install.py --all.
 " The readme details the deps you need to install under Ubuntu.
