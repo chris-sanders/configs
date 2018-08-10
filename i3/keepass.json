@@ -1,0 +1,25 @@
+// vim:ts=4:sw=4:et
+{
+    "border": "normal",
+    "current_border_width": 2,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 2105,
+       "width": 956,
+       "x": 5762,
+       "y": 18
+    },
+    "name": "Chris.kdbx - KeePass",
+    "percent": 1,
+    "swallows": [
+       {
+        "class": "^KeePass2$"
+       }
+       // "instance": "^keepass2$",
+       // "title": "^Chris\\.kdbx\\ \\-\\ KeePass$",
+       // "transient_for": "^$"
+       // }
+    ],
+    "type": "con"
+}
+
