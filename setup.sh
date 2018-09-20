@@ -12,6 +12,8 @@ repos=(
 ["https://github.com/chris-sanders/charm-ceph-fs.git"]="$HOME/src/juju/charms/layers/charm-ceph-fs"
 ["https://github.com/chris-sanders/charm-ceph-mon.git"]="$HOME/src/juju/charms/nolayer/ceph-mon"
 ["https://github.com/chris-sanders/charm-ceph-osd.git"]="$HOME/src/juju/charms/nolayer/ceph-osd"
+["https://github.com/chris-sanders/charm-ceph-osd.git"]="$HOME/src/juju/charms/nolayer/ceph-osd"
+["https://git.launchpad.net/~chris.sanders/prometheus-ceph-exporter-charm"]="$HOME/src/juju/charms/layers/layer-prometheus-ceph-exporter"
 )
 
 # Clone repos
