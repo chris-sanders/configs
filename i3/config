@@ -180,8 +180,9 @@ bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -2.5%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # Screen brightness
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+bindsym XF86MonBrightnessUp exec "sudo /home/chris/scripts/brightness.sh 5"
+bindsym XF86MonBrightnessDown exec /home/chris/scripts/brightness.sh -5
+# bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 
 # Touchpad
 # exec xinput set-prop 13 289 1     # Natural Scrolling Enabled
