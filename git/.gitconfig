@@ -1,0 +1,19 @@
+[url "bzr+ssh://bazaar.launchpad.net/"]
+        insteadof = lpbz:
+
+[url "git+ssh://chris.sanders@git.launchpad.net/"]
+        insteadof = lp:
+
+[url "git+ssh://chris.sanders@git.launchpad.net/~chris.sanders/"]
+        insteadof = lpme:
+
+[user]
+	email = sanders.chris@gmail.com
+	name = Chris Sanders
+[gitreview]
+    username = chris.sanders
+[alias]
+    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    lol = log --graph --decorate --pretty=oneline --abbrev-commit
+
+
