@@ -43,10 +43,6 @@ Plugin 'juneedahamed/vc.vim'
 " files from the tree
 Plugin 'jistr/vim-nerdtree-tabs'
 
-" Puppet DSL support (you don't need this,
-" I bootstrap my workstations with puppet)
-Plugin 'rodjek/vim-puppet'
-
 " Tab support plugin
 Plugin 'godlygeek/tabular'
 
@@ -66,10 +62,10 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'Vimjas/vim-python-pep8-indent'
 
 " YAML indenting
-Plugin 'stephpy/vim-yaml'
+" Plugin 'stephpy/vim-yaml'
 
 " All the golang things
-Plugin 'fatih/vim-go'
+" Plugin 'fatih/vim-go'
 
 " monokai colorscheme
 Plugin 'sickill/vim-monokai'
@@ -77,12 +73,32 @@ Plugin 'sickill/vim-monokai'
 " Don't change indents when pasting
 Plugin 'ConradIrwin/vim-bracketed-paste'
 
-" For the below, you'll need to enter the checked out directory
-" once it's been installed by Vundle, and run ./install.py --all.
-" The readme details the deps you need to install under Ubuntu.
-" Step by step: https://valloric.github.io/YouCompleteMe/#ubuntu-linux-x64
-" Currently using ./install.py --clang-completer --gocode-completer
-Plugin 'Valloric/YouCompleteMe'
+" Because I hate myself
+Plugin 'python/black'
+
+" Pyenv
+" Plugin 'lambdalisue/vim-pyenv'
+
+" Jedi autocomplete
+Plugin 'davidhalter/jedi-vim'
+
+" Rust
+Plugin 'rust-lang/rust.vim'
+
+" VimWiki
+" Because everything needs a Wiki
+Plugin 'vimwiki/vimwiki'
+
+" TaskWarrior
+Bundle 'farseer90718/vim-taskwarrior'
+
+" Tagbar
+" Taskwiki file navigation
+Plugin 'majutsushi/tagbar'
+
+" taskwiki
+" TaskWarrior + vimwiki
+Plugin 'tbabej/taskwiki'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -183,3 +199,6 @@ autocmd BufWritePre *.py %s/\s\+$//e
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
 
+" Setup hybrid line numbers
+set number
+set relativenumber

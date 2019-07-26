@@ -21,12 +21,11 @@ i3-msg "workspace 2;
         move workspace to output DP-1-1;
         append_layout /home/chris/.config/i3/browser.json;" &&\ 
 	google-chrome --profile-directory="Profile 1" \
-	              "https://zarek.cc/glowing-bear/#" \
+	              "https://glowing-bear.org/#" \
 		      "https://calendar.google.com/calendar" \
-		      "https://portal.admin.canonical.com/stormwatch?team=bootstack" \
-		      "https://portal.admin.canonical.com/triage?team=bootstack" \
+		      "https://portal.admin.canonical.com/bootstack/triage/?team=CRE" \
+		      "https://nagios.bootstack.canonical.com/thruk/#cgi-bin/extinfo.cgi?type=6" \
 		      "https://canonical.greenhouse.io/people?sort_by=last_activity&sort_order=desc&stage_status_id%5B%5D=2&job_status=open&in_stages%5B%5D=Application+Review&user_id_on_jobs=&user_role_on_jobs=&department_id%5B%5D=&hiring_plan_id%5B%5D=605378&hiring_plan_id%5B%5D=685701&hiring_plan_id%5B%5D=712896&office_id%5B%5D=&job_custom_field_id=&job_custom_field_answer_id=" \
-		      "https://docs.google.com/spreadsheets/d/1LpNnEfh1hfhAKOExCWzDyVAIEmm2KRgc7mU2LnyNB_U/edit#gid=0&fvid=715577595" \
 		      &
 
 # Setup thunderbird
