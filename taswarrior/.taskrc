@@ -1,0 +1,22 @@
+# Reports
+report.in.columns = id,description
+report.in.description = Inbox
+report.in.filter = status:pending limit:page (+in)
+report.in.labels = ID,Description
+
+# Misc
+search.case.sensitive=no
+
+# Context
+context.work=+work or +meeting
+context.hobby=(+charming or +lab or +in) and -work
+context=hobby
+
+# Urgency
+urgency.age.coefficient=0.0
+urgency.annotations.coefficient=0.0
+urgency.tags.coefficient=0.0
+urgency.project.coefficient=0.0
+urgency.inherit=1
+urgency.blocking.coefficient=0.0
+# urgency.blocked.coefficient=0.0
