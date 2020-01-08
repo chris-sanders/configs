@@ -110,7 +110,7 @@ let g:ale_fixers = {
 \	'black',
 \	'trim_whitespace',
 \	'add_blank_lines_for_python_control_statements',
-\	'remove_trailing_lines'
+\	'remove_trailing_lines',
 \       'autopep8',
 \    ],
 \}
