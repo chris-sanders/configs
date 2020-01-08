@@ -168,11 +168,9 @@ bar {
 }
 
 # autostart
-# exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
-exec xrandr --dpi 200
-exec --no-startup-id /usr/bin/mate-settings-daemon 
+# exec blueman-applet
 exec nm-applet
-exec blueman-applet
+exec autorandr --change
 
 # audio
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +2.5%
@@ -180,9 +178,8 @@ bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -2.5%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # Screen brightness
-bindsym XF86MonBrightnessUp exec "sudo /home/chris/scripts/brightness.sh 5"
-bindsym XF86MonBrightnessDown exec /home/chris/scripts/brightness.sh -5
-# bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 
 # Touchpad
 # exec xinput set-prop 13 289 1     # Natural Scrolling Enabled
@@ -191,13 +188,13 @@ bindsym XF86MonBrightnessDown exec /home/chris/scripts/brightness.sh -5
 
 # Screensaver
 bindsym $mod+m exec "gnome-screensaver-command -l"
-# exec --no-startup-id xautolock -time 10 -locker "gnome-screensaver-command -l"
+exec --no-startup-id xautolock -time 10 -locker "gnome-screensaver-command -l"
 exec --no-startup-id xautolock -detectsleep -locker 'gnome-screensaver-command -l'
 
 # Power management
-exec --no-startup-id xset dpms 630 660 900
-exec --no-startup-id xset s 600
-exec --no-startup-id xset s blank
+# exec --no-startup-id xset dpms 630 660 900
+# exec --no-startup-id xset s 600
+# exec --no-startup-id xset s blank
 
 # Move workspace
 bindsym $mod+Mod1+Shift+l move workspace to output right

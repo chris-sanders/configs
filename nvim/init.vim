@@ -45,7 +45,7 @@ filetype plugin indent on
 filetype plugin on
 
 au FileType python setl shiftwidth=4 colorcolumn=120 expandtab
-au FileType yml    setl shiftwidth=4 expandtab
+au FileType yml    setl shiftwidth=2 expandtab
 
 au BufRead *.md setlocal spell
 au BufRead *.txt setlocal spell
@@ -106,14 +106,14 @@ let g:ale_open_list = 1
 let g:ale_linters = {'python': ['flake8']}
 let g:ale_fixers = {
 \    'python': [
+\	'isort',
 \	'black',
+\	'trim_whitespace',
+\	'add_blank_lines_for_python_control_statements',
+\	'remove_trailing_lines'
+\       'autopep8',
 \    ],
 \}
-" \	'trim_whitespace',
-" \	'isort',
-" \	'add_blank_lines_for_python_control_statements',
-" \	'remove_trailing_lines'
-" \       'autopep8',
 
 let g:ale_python_auto_pipenv = 1
 let g:ale_python_flake8_auto_pipenv = 1
