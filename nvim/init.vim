@@ -103,6 +103,7 @@ let g:deoplete#enable_at_startup = 1
 
 " ALE
 let g:ale_open_list = 1
+let g:ale_list_window_size = 5
 let g:ale_linters = {'python': ['flake8']}
 let g:ale_fixers = {
 \    'python': [
@@ -119,11 +120,19 @@ let g:ale_python_auto_pipenv = 1
 let g:ale_python_flake8_auto_pipenv = 1
 let g:ale_python_black_executable = "/home/chris/.local/share/nvim/black/bin/black"
 
+" Hotkeys
+map <F5> :ALEFix
+map <F6> <Plug>(ale_next_wrap)
+map <F7> <Plug>(ale_toggle_buffer)
+map <F8> <Plug>(ale_reset_buffer)
+
 " VimWiki / TaskWiki
 syntax on
 let g:vimwiki_list = [
-\	{'path': '~/Wiki/Home/', 'syntax': 'markdown', 'ext': '.md'},
-\	{'path': '~/Wiki/Work/', 'syntax': 'markdown', 'ext': '.md'}
+\	{'path': '~/Wiki/Eberron/', 'syntax': 'markdown', 'ext': '.md', 'list_margin': 0, 'index': 'home'},
+\	{'path': '~/Wiki/Kingmaker/', 'syntax': 'markdown', 'ext': '.md', 'list_margin': 0, 'index': 'home'},
+\	{'path': '~/Wiki/Home/', 'syntax': 'markdown', 'ext': '.md', 'list_margin': 0},
+\	{'path': '~/Wiki/Work/', 'syntax': 'markdown', 'ext': '.md', 'list_margin': 0}
 \]
 let g:taskwiki_sort_orders={"U": "urgency-,due-"}
 
