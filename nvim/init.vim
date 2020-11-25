@@ -18,16 +18,17 @@ Plug 'itchyny/lightline.vim'
 " Vimwiki
 Plug 'vimwiki/vimwiki', { 'branch': 'dev'}
 Plug 'blindFS/vim-taskwarrior'
-Plug 'majutsushi/tagbar'
+" Plug 'majutsushi/tagbar'
 Plug 'tbabej/taskwiki'
 Plug 'michal-h21/vimwiki-sync'
 
 " Python
 Plug 'Vimjas/vim-python-pep8-indent'
-Plug 'python/black'
+"Plug 'python/black'
+Plug 'psf/black'
 
 " Golang
-Plug 'fatih/vim-go'
+" Plug 'fatih/vim-go'
 
 " Code syntax/cleanliness checking (ALE)
 Plug 'dense-analysis/ale'
@@ -118,7 +119,8 @@ let g:ale_fixers = {
 
 let g:ale_python_auto_pipenv = 1
 let g:ale_python_flake8_auto_pipenv = 1
-let g:ale_python_black_executable = "/home/chris/.local/share/nvim/black/bin/black"
+" let g:ale_python_black_executable = "/home/chris/.local/share/nvim/black/bin/black"
+let g:black_virtualenv = "/home/chris/.local/share/nvim/black"
 
 " Hotkeys
 map <F5> :ALEFix
@@ -132,9 +134,16 @@ let g:vimwiki_list = [
 \	{'path': '~/Wiki/Eberron/', 'syntax': 'markdown', 'ext': '.md', 'list_margin': 0, 'index': 'home'},
 \	{'path': '~/Wiki/Kingmaker/', 'syntax': 'markdown', 'ext': '.md', 'list_margin': 0, 'index': 'home'},
 \	{'path': '~/Wiki/Home/', 'syntax': 'markdown', 'ext': '.md', 'list_margin': 0},
+\	{'path': '~/Wiki/PrivateCloud/', 'syntax': 'markdown', 'ext': '.md', 'list_margin': 0, 'index': 'home'},
 \	{'path': '~/Wiki/Work/', 'syntax': 'markdown', 'ext': '.md', 'list_margin': 0}
 \]
 let g:taskwiki_sort_orders={"U": "urgency-,due-"}
+" Leave my other .md files alone
+let g:vimwiki_global_ext=0
+
+" Use system python when in venv
+let g:python3_host_prog="/usr/bin/python3"
+let g:python_host_prog=0
 
 " Faster gutter updates for git
 set updatetime=100
@@ -142,6 +151,9 @@ set updatetime=100
 " Setup hybrid line numbers
 set number
 set relativenumber
+
+" Don't auto-rename
+" set allow-rename off
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
