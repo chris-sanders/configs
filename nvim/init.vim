@@ -14,18 +14,33 @@ Plug 'airblade/vim-gitgutter'
 
 " Lightline status bar
 Plug 'itchyny/lightline.vim'
+Plug 'maximbaz/lightline-ale'
 
 " Vimwiki
 Plug 'vimwiki/vimwiki', { 'branch': 'dev'}
-Plug 'blindFS/vim-taskwarrior'
-" Plug 'majutsushi/tagbar'
-Plug 'tbabej/taskwiki'
 Plug 'michal-h21/vimwiki-sync'
+" Plug 'blindFS/vim-taskwarrior'
+" Plug 'majutsushi/tagbar'
+" Plug 'tbabej/taskwiki'
 
 " Python
 Plug 'Vimjas/vim-python-pep8-indent'
-"Plug 'python/black'
 Plug 'psf/black'
+
+" Code browser
+Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'PhilRunninger/nerdtree-buffer-ops'
+
+" Code commenting
+Plug 'preservim/nerdcommenter'
+
+" Automatic closing
+Plug 'jiangmiao/auto-pairs'
+
+" Snippets
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 " Golang
 " Plug 'fatih/vim-go'
@@ -34,9 +49,10 @@ Plug 'psf/black'
 Plug 'dense-analysis/ale'
 
 " Code Autocompletion
-Plug 'Shougo/deoplete.nvim'
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
+" Tagbar
+Plug 'preservim/tagbar'
 
 call plug#end()
 " Done with plugins
@@ -62,7 +78,6 @@ au BufRead *.markdown setlocal spell
 " Papercolor
 set background=dark
 colorscheme PaperColor
-let g:lightline = { 'colorscheme': 'PaperColor' }
 let g:PaperColor_Theme_Options = { 
   \   'language': { 
   \     'python': { 
@@ -70,7 +85,24 @@ let g:PaperColor_Theme_Options = {
   \      } 
   \   }
   \ }
-"
+" Lightline
+let g:lightline = { 'colorscheme': 'PaperColor' }
+let g:lightline.component_expand = {
+      \  'linter_checking': 'lightline#ale#checking',
+      \  'linter_infos': 'lightline#ale#infos',
+      \  'linter_warnings': 'lightline#ale#warnings',
+      \  'linter_errors': 'lightline#ale#errors',
+      \  'linter_ok': 'lightline#ale#ok',
+      \ }
+let g:lightline.component_type = {
+      \     'linter_checking': 'right',
+      \     'linter_infos': 'right',
+      \     'linter_warnings': 'warning',
+      \     'linter_errors': 'error',
+      \     'linter_ok': 'right',
+      \ }
+let g:lightline.active = { 'right': [[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ]] }
+
 " dracula
 " colorscheme dracula
 "
@@ -99,34 +131,40 @@ set shiftwidth=4
 set showmode
 set wrapmargin=2
 
+" Nerdtree
+" Mirror the NERDTree before showing it. This makes it the same on all tabs.
+nnoremap <C-n> :NERDTreeMirror<CR>:NERDTreeFocus<CR>
+
 " Deoplete
 let g:deoplete#enable_at_startup = 1
-
+" let g:deoplete#auto_complete_delay = 300
+call deoplete#custom#option('sources', {'_': ['ale']})
+"
 " ALE
 let g:ale_open_list = 1
 let g:ale_list_window_size = 5
-let g:ale_linters = {'python': ['flake8']}
+let g:ale_linters = {'python': ['flake8', 'pyls']}
 let g:ale_fixers = {
 \    'python': [
 \	'isort',
 \	'black',
-\	'trim_whitespace',
-\	'add_blank_lines_for_python_control_statements',
-\	'remove_trailing_lines',
-\       'autopep8',
 \    ],
 \}
 
 let g:ale_python_auto_pipenv = 1
-let g:ale_python_flake8_auto_pipenv = 1
-" let g:ale_python_black_executable = "/home/chris/.local/share/nvim/black/bin/black"
+" let g:ale_python_flake8_auto_pipenv = 1
+let g:ale_python_black_executable = "/home/chris/.local/share/nvim/black/bin/black"
 let g:black_virtualenv = "/home/chris/.local/share/nvim/black"
 
 " Hotkeys
-map <F5> :ALEFix
-map <F6> <Plug>(ale_next_wrap)
-map <F7> <Plug>(ale_toggle_buffer)
-map <F8> <Plug>(ale_reset_buffer)
+" nnoremap <C-t> :NERDTreeToggle<CR>
+map <F4> :NERDTreeToggle<CR>
+map <F5> :ALEFix<CR>
+map <F6> <Plug>(ale_toggle_buffer)
+map <F7> <Plug>(ale_reset_buffer)
+nmap <F8> :TagbarToggle<CR>
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 " VimWiki / TaskWiki
 syntax on
