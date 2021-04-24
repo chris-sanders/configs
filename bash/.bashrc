@@ -43,7 +43,7 @@ esac
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
-#force_color_prompt=yes
+force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -122,7 +122,7 @@ if [ -n "$DESKTOP_SESSION" ];then
     export SSH_AUTH_SOCKET
 fi
 
-export EDITOR=vim
+export EDITOR=nvim
 export JUJU_REPOSITORY=$HOME/src/juju/charms
 export CHARM_LAYER_DIR=$JUJU_REPOSITORY/layers
 export CHARM_INTERFACE_DIR=$JUJU_REPOSITORY/interfaces
@@ -132,6 +132,9 @@ export PATH=$PATH:~/src/charm-template
 
 # Git remote bzr
 export PATH=$PATH:~/src/git-remote-bzr
+
+# AppImage
+export PATH=$PATH:~/AppImage
 
 # Builds snaps in lxd
 export SNAPCRAFT_BUILD_ENVIRONMENT=lxd
@@ -144,12 +147,46 @@ alias tw='task +@work'
 alias in='task add +in'
 alias taskl='task list limit:10 -meeting'
 alias tl=taskl
+alias td='task status:completed sort:end- limit:10 all'
 # export PS1='$(task +in +PENDING count) '$PS1
+
+# Multiline prompt
+# Venv from https://stackoverflow.com/questions/10406926/how-do-i-change-the-default-virtualenv-prompt
+function __virtualenv_ps1 {
+    echo "${VIRTUAL_ENV:+(${VIRTUAL_ENV##*/})}"
+}
+
+# disable the default virtualenv prompt change
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+
+# Line art from https://superuser.com/questions/218699/how-can-i-change-my-prompt-to-include-box-drawing-unicode-characters
+# Vim unicode <ctl>-v, u+code
+export PS1="╭$(__virtualenv_ps1)${PS1}
+╰>"
 
 # Use NeoVim
 alias vim=nvim
 
+# k8s default context:
+unset KUBECONFIG
+# [ -e ~/.kube/config ] && export KUBECONFIG=$HOME/.kube/config
+
+# We put other contexts in ~/.kube/contexts
+for c in $(IFS=$'\n' find ~/.kube/contexts -type f -name "*.yaml")
+do
+    export KUBECONFIG=$c:$KUBECONFIG
+done
+
 # Autostart tmux
 if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-    tmux attach -t default || tmux new -s default
+    tmux new
 fi
+
+# Sealed Secrets
+export SEALED_SECRETS_CONTROLLER_NAMESPACE="sealed-secrets"
+
+# added by pipx (https://github.com/pipxproject/pipx)
+export PATH="/home/chris/.local/bin:$PATH"
+
+# add Pulumi to the PATH
+export PATH=$PATH:$HOME/.pulumi/bin
