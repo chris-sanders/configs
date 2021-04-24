@@ -162,7 +162,9 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 # Line art from https://superuser.com/questions/218699/how-can-i-change-my-prompt-to-include-box-drawing-unicode-characters
 # Vim unicode <ctl>-v, u+code
 export PS1="╭$(__virtualenv_ps1)${PS1}
-╰>"
+╰➤ "
+# ╰➤"
+# ╰ᐅ"
 
 # Use NeoVim
 alias vim=nvim
