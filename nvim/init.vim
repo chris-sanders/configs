@@ -1,6 +1,7 @@
 set nocompatible
 filetype off
 
+
 call plug#begin()
 "Color scheme
 " Plug 'cseelus/vim-colors-lucid'
@@ -19,9 +20,12 @@ Plug 'maximbaz/lightline-ale'
 " Vimwiki
 Plug 'vimwiki/vimwiki', { 'branch': 'dev'}
 Plug 'michal-h21/vimwiki-sync'
-" Plug 'blindFS/vim-taskwarrior'
-" Plug 'majutsushi/tagbar'
-" Plug 'tbabej/taskwiki'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'michal-h21/vim-zettel'
+
+" Table mode
+Plug 'dhruvasagar/vim-table-mode'
 
 " Python
 Plug 'Vimjas/vim-python-pep8-indent'
@@ -166,18 +170,46 @@ nmap <F8> :TagbarToggle<CR>
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
+" Zettel
+let g:zettel_format = '%Y%m%d-%H%M%S'
+" let g:zettel_options = [{"front_matter" : {"tags" : ""}, "template": "~/Wiki/Zettel/template/new_zettel.tpl"}]
+let g:zettel_options = [{"disable_front_matter" : 1 , "template": "~/Wiki/Zettel/template/new_zettel.tpl"}]
+nmap T <Plug>ZettelYankNameMap
+
 " VimWiki / TaskWiki
 syntax on
 let g:vimwiki_list = [
-\	{'path': '~/Wiki/Eberron/', 'syntax': 'markdown', 'ext': '.md', 'list_margin': 0, 'index': 'home'},
+\	{'path': '~/Wiki/Zettel/', 'syntax': 'markdown', 'ext': '.md', 'list_margin': 0, 'index': 'home', 'auto_tag':1},
+\	{'path': '~/Wiki/Eberron/', 'syntax': 'markdown', 'ext': '.md', 'list_margin': 0, 'index': 'home', 'auto_tag':1},
 \	{'path': '~/Wiki/Kingmaker/', 'syntax': 'markdown', 'ext': '.md', 'list_margin': 0, 'index': 'home'},
 \	{'path': '~/Wiki/Home/', 'syntax': 'markdown', 'ext': '.md', 'list_margin': 0},
 \	{'path': '~/Wiki/PrivateCloud/', 'syntax': 'markdown', 'ext': '.md', 'list_margin': 0, 'index': 'home'},
 \	{'path': '~/Wiki/Work/', 'syntax': 'markdown', 'ext': '.md', 'list_margin': 0}
 \]
-let g:taskwiki_sort_orders={"U": "urgency-,due-"}
+" let g:taskwiki_sort_orders={"U": "urgency-,due-"}
+let g:vimwiki_auto_chdir = 1
 " Leave my other .md files alone
 let g:vimwiki_global_ext=0
+let g:vimwiki_hl_headers=1
+" Use Table mode, built in tables blocks Ultisnips
+let g:vimwiki_table_auto_fmt = 0
+let g:vimwiki_key_mappings = {}
+let g:vimwiki_key_mappings.table_mappings = 0
+
+nnoremap <leader>gt :VimwikiRebuildTags!<cr>:VimwikiGenerateTagLinks<cr><c-l>
+nnoremap <leader>bl :VimwikiBacklinks<cr>
+
+" Tag search
+" Not working currently
+" let g:tagbar_type_vimwiki = {
+"           \   'ctagstype':'markdown'
+"           \ , 'kinds':['h:header']
+"           \ , 'sro':'&&&'
+"           \ , 'kind2scope':{'h':'header'}
+"           \ , 'sort':0
+"           \ , 'ctagsbin': '/home/chris/.config/nvim/VimwikiTags/vwtags.py'
+"           \ , 'ctagsargs': 'default'
+"           \ }
 
 " Use system python when in venv
 let g:python3_host_prog="/usr/bin/python3"
