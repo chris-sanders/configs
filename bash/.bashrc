@@ -131,7 +131,7 @@ export CHARM_INTERFACE_DIR=$JUJU_REPOSITORY/interfaces
 export PATH=$PATH:~/src/charm-template
 
 # Git remote bzr
-export PATH=$PATH:~/src/git-remote-bzr
+#export PATH=$PATH:~/src/git-remote-bzr
 
 # AppImage
 export PATH=$PATH:~/AppImage
@@ -163,8 +163,6 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 # Vim unicode <ctl>-v, u+code
 export PS1="╭$(__virtualenv_ps1)${PS1}
 ╰➤ "
-# ╰➤"
-# ╰ᐅ"
 
 # Use NeoVim
 alias vim=nvim
@@ -184,11 +182,34 @@ if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
     tmux new
 fi
 
+# Juju debug-hooks that don't suck
+function juju-dug-hooks {
+    juju ssh "$unit" 'echo "export TERM=xterm-256color; stty sane; reset" | sudo tee -a /root/.bashrc >> ~/.bashrc'
+    juju debug-hooks "$@"
+}
+
+# k8s-show-n
+alias k8s-show-ns=" kubectl api-resources --verbs=list --namespaced -o name  | xargs -n 1 kubectl get --show-kind --ignore-not-found  -n"
+
 # Sealed Secrets
 export SEALED_SECRETS_CONTROLLER_NAMESPACE="sealed-secrets"
 
 # added by pipx (https://github.com/pipxproject/pipx)
 export PATH="/home/chris/.local/bin:$PATH"
 
+# Add Go
+export PATH="$PATH:/usr/local/go/bin"
+export PATH="$PATH:/home/chris/go/bin"
+
 # add Pulumi to the PATH
 export PATH=$PATH:$HOME/.pulumi/bin
+
+export PATH=$PATH:/home/chris/bin
+
+source '/home/chris/lib/azure-cli/az.completion'
+
+# export B2_ACCOUNT_ID="0016da816e60ede0000000004"
+# export B2_ACCOUNT_KEY="K0015Wkib4AAuqrG/nA397MJch5eA8Y"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export FZF_PREVIEW_LINES=40
