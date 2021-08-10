@@ -1,0 +1,16 @@
+{
+  // Important, otherwise link completion containing spaces and other special characters won't work.
+  "suggest.invalidInsertCharacters": [],
+  "diagnostic.virtualText": true,
+  "diagnostic.virtualTextCurrentLineOnly": true,
+
+  "languageserver": {
+    "zk": {
+      "command": "zk",
+      "args": ["lsp"],
+      //"args": ["lsp", "--log", "~/tmp/zk.log"],
+      "trace.server": "messages",
+      "filetypes": ["markdown"]
+    }
+  }
+}
