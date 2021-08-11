@@ -1,4 +1,4 @@
-"set nocompatible
+set nocompatible
 "filetype off
 
 call plug#begin()
@@ -34,6 +34,8 @@ Plug 'LucHermitte/local_vimrc'
 "Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
+" Make gx work on mac?
+Plug 'felipec/vim-sanegx'
 call plug#end()
 " Done with plugins
 
@@ -77,6 +79,7 @@ autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 
 " Coc
 let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-tsserver', 'coc-sh', 'coc-yaml', 'coc-snippets', 'coc-markdownlint', 'coc-marketplace']
+
 " Confirm selection on CR
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
@@ -92,26 +95,14 @@ nnoremap <leader>zi :ZkIndex<CR>
 nnoremap <leader>zn :ZkNew {"title": input("Title: ")}<CR>
 nnoremap <leader>zj :ZkNew {"dir": "journal/daily"}<CR>
 
-"xmap <silent> <leader>zn :'<,'> lua vim.lsp.buf.range_code_action()<CR>
-"xmap <silent> <leader>zn <cmd>'<,'> lua vim.lsp.buf.range_code_action()<CR>
 vmap <leader>zn <Plug>(coc-codeaction-selected)
-"xnoremap <leader>zn <Plug>(coc-codeaction-selected)<CR>
 nnoremap <silent> K :call CocAction('doHover')<CR>
 
-" Use system python when in venv
-" let g:python3_host_prog="/usr/bin/python3"
-" let g:python_host_prog=0
+" coc-markdownlint
+nmap <leader>ca <Plug>(coc-codeaction-line)
 
 " Loca vimrc
 call lh#local_vimrc#munge('whitelist', $HOME.'/Wiki/Eberron')
-
-" fzf
-" - Popup window (center of the screen)
-"let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
-"let g:fzf_layout = { 'up': '~50%' }
-
-" - Popup window (center of the current window)
-"let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6, 'relative': v:true } }
 
 " Faster gutter updates for git
 set updatetime=100

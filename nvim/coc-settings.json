@@ -12,5 +12,9 @@
       "trace.server": "messages",
       "filetypes": ["markdown"]
     }
+  },
+  "markdownlint.config": {
+    "default": true,
+    "line_length": false
   }
 }

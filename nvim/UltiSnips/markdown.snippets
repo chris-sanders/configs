@@ -1,14 +1,4 @@
-snippet intro "Zk person intro template"
----
-tags:
-- people
----
-# $1
-
-$2
-endsnippet
-
-snippet meeting "Zk meeting template"
+snippet zk-meeting "Zk meeting template"
 ---
 tags:
 - meeting
@@ -17,5 +7,25 @@ tags:
 # $1 `!v strftime("%Y-%m-%d")`
 
 Attendees:
+
+* Chris Sanders
 * $2
+
+$3
+endsnippet
+
+snippet zk-coffee "Zk coffee meeting template"
+---
+tags:
+- meeting/coffee
+---
+
+# $1 `!v strftime("%Y-%m-%d")`
+
+Attendees:
+
+* Chris Sanders
+* $1
+
+$2
 endsnippet
