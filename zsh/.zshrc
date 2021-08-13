@@ -39,3 +39,7 @@ function set-kubeconfig {
 }
 
 set-kubeconfig
+
+# Setup gcloud-cli
+source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
