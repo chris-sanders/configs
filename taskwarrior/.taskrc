@@ -51,11 +51,11 @@ urgency.inherit=1
 urgency.blocking.coefficient=0.0
 # urgency.blocked.coefficient=0.0
 
-taskd.certificate=\/home\/chris\/.task\/default_chris.cert.pem
-taskd.key=\/home\/chris\/.task\/default_chris.key.pem
+taskd.certificate=\/home\/chris\/.task\/csanders.cert.pem
+taskd.key=\/home\/chris\/.task\/csanders.key.pem
 taskd.ca=\/home\/chris\/.task\/ca.cert.pem
 taskd.server=zarek.cc:53589
-taskd.credentials=default\/chris\/88a401b5-5e18-4eaf-a544-b6a7c3d05444
+taskd.credentials=sanders\/csanders\/445abfa2-0d55-4bb9-9675-dbebd18225d9
 report.all.sort=end-
 context.home=-work
 context=work
