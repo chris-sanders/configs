@@ -43,6 +43,15 @@ set-kubeconfig
 # Setup gcloud-cli
 source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+alias cs-start="~/scripts/codeserver.sh start"
+alias cs-stop="~/scripts/codeserver.sh stop"
+alias cs-connect="~/scripts/ssh-codeserver.sh"
+alias cs-launch="cs-start && cs-connect"
+
+# Setup helper gcloud scripts
+export GUSER=chriss
+#export GZONE=us-central1-a
+source $HOME/src/gcommands/.gcommands.sh
 
 ## Taskwarrior
 alias tr='task ready +@work'
@@ -53,3 +62,11 @@ alias taskl='task list limit:10 -meeting'
 alias tl=taskl
 alias td='task status:completed sort:end- limit:10 all'
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# using ripgrep combined with preview
+# find-in-file - usage: fif <searchTerm>
+fif() {
+  if [ ! "$#" -gt 0 ]; then echo "Need a string to search for!"; return 1; fi
+  rg --files-with-matches --no-messages "$1" | fzf --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 10 '$1' || rg --ignore-case --pretty --context 10 '$1' {}"
+}
