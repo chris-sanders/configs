@@ -115,19 +115,22 @@ nnoremap <leader>zi :ZkIndex<CR>
 nnoremap <leader>zn :ZkNew {"title": input("Title: ")}<CR>
 nnoremap <leader>zj :ZkNew {"dir": "journal/daily"}<CR>
 
-"vmap <leader>zn <Plug>(coc-codeaction-selected)
-nnoremap <silent> K :call CocAction('doHover')<CR>
-
 " coc-markdownlint
 let g:coc_filetype_map = { 'pandoc': 'markdown' }
 
-" coc-spell-check
-"nmap <leader>a <Plug>(coc-codeaction-selected)
-
 " Code Actions
-vmap <leader>as <Plug>(coc-codeaction-selected)
-nmap <leader>as <Plug>(coc-codeaction-selected)
+"nmap <leader>as <Plug>(coc-codeaction-selected)
+"vmap <leader>as <Plug>(coc-codeaction-selected)
 nmap <leader>al <Plug>(coc-codeaction-line)
+nmap <CR> <Plug>(coc-definition)
+vmap <CR> <Plug>(coc-codeaction-selected)
+nnoremap <silent> K :call CocAction('doHover')<CR>
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gt <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 " Loca vimrc
 call lh#local_vimrc#munge('whitelist', $HOME.'/Wiki/Eberron')
@@ -141,11 +144,6 @@ set relativenumber
 
 " Hotkeys
 map <F4> :NERDTreeToggle<CR>
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gt <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
