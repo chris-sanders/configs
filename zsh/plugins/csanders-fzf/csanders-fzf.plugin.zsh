@@ -20,7 +20,7 @@ fiv() {
 fd() {
   local dir
   dir=$(find ${1:-.} -path '*/\.*' -prune \
-                  -o -type d -print 2> /dev/null | fzf +m) &&
+                  -o -type d -print 2> /dev/null | fzf +m -q ${2:-.}) &&
   cd "$dir"
 }
 
