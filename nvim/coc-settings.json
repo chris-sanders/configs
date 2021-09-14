@@ -10,11 +10,15 @@
       "args": ["lsp"],
       //"args": ["lsp", "--log", "~/tmp/zk.log"],
       "trace.server": "messages",
-      "filetypes": ["markdown"]
+      "filetypes": ["markdown", "pandoc"]
     }
   },
   "markdownlint.config": {
     "default": true,
     "line_length": false
-  }
+  },
+  "snippets.ultisnips.directories": [
+  "UltiSnips",
+  "$PWD/.snips"
+  ]
 }

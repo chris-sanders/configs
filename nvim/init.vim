@@ -36,12 +36,22 @@ Plug 'honza/vim-snippets'
 
 " Make gx work on mac?
 Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
+" Plug 'plasticboy/vim-markdown'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+
 call plug#end()
 " Done with plugins
 
+" Use vim-pandoc-syntax with markdown files
+augroup pandoc_syntax
+    au! BufNewFile,BufFilePre,BufRead *.md set filetype=pandoc
+augroup END
+let g:pandoc#modules#disabled = ["folding"]
+let g:pandoc#syntax#conceal#urls = 1
+
 " Mark .md files as markdown for highlighting
-autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
+" autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 
 "au BufRead *.md setlocal spell
 "au BufRead *.txt setlocal spell
@@ -53,12 +63,12 @@ autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 :set guioptions-=r  "remove right-hand scroll bar
 :set guioptions-=L  "remove left-hand scroll bar
 
-" Markdown
-set conceallevel=2
-let g:vim_markdown_conceal_code_blocks = 0
-"let g:vim_markdown_folding_level = 6
-" Can't get it to start unfolded, just turn it off for ow
-let g:vim_markdown_folding_disabled = 1
+"" Markdown
+"set conceallevel=2
+"let g:vim_markdown_conceal_code_blocks = 0
+""let g:vim_markdown_folding_level = 6
+"" Can't get it to start unfolded, just turn it off for ow
+"let g:vim_markdown_folding_disabled = 1
 
 " Papercolor
 set background=dark
@@ -109,7 +119,7 @@ nnoremap <leader>zj :ZkNew {"dir": "journal/daily"}<CR>
 nnoremap <silent> K :call CocAction('doHover')<CR>
 
 " coc-markdownlint
-"nmap <leader>ca <Plug>(coc-codeaction-line)
+let g:coc_filetype_map = { 'pandoc': 'markdown' }
 
 " coc-spell-check
 "nmap <leader>a <Plug>(coc-codeaction-selected)
@@ -118,7 +128,6 @@ nnoremap <silent> K :call CocAction('doHover')<CR>
 vmap <leader>as <Plug>(coc-codeaction-selected)
 nmap <leader>as <Plug>(coc-codeaction-selected)
 nmap <leader>al <Plug>(coc-codeaction-line)
-
 
 " Loca vimrc
 call lh#local_vimrc#munge('whitelist', $HOME.'/Wiki/Eberron')
@@ -134,7 +143,7 @@ set relativenumber
 map <F4> :NERDTreeToggle<CR>
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gt <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
