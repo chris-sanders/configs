@@ -17,8 +17,7 @@
     "default": true,
     "line_length": false
   },
-  "snippets.ultisnips.directories": [
-  "UltiSnips",
-  "$PWD/.snips"
+  "cSpell.userWords": [
+    "Kubernetes"
   ]
 }
