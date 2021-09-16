@@ -118,9 +118,6 @@ nmap <silent> gt <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-" Loca vimrc
-call lh#local_vimrc#munge('whitelist', $HOME.'/Wiki/Eberron')
-
 " Faster gutter updates for git
 set updatetime=100
 
