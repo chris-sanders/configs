@@ -15,11 +15,12 @@
   },
   "markdownlint.config": {
     "default": true,
-    "line_length": false
+    "line_length": false,
+    "MD018": false
   },
   "snippets.ultisnips.directories": [
   "UltiSnips",
-  "$PWD/.snips"
+  "$PWD/.vim/snips"
   ],
   "cSpell.userWords": [
     "Kubernetes"
