@@ -123,6 +123,7 @@ set relativenumber
 
 " Hotkeys
 map <F4> :NERDTreeToggle<CR>
+map <F5> :call CocAction("runCommand", "markdownlint.fixAll")<CR>
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
