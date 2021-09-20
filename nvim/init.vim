@@ -26,17 +26,11 @@ Plug 'junegunn/fzf.vim'
 " Coc.nvim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Local vimrc
-Plug 'LucHermitte/lh-vim-lib'
-Plug 'LucHermitte/local_vimrc'
-
-" Ultisnips
-"Plug 'SirVer/ultisnips'
+" Snippets
 Plug 'honza/vim-snippets'
 
 " Make gx work on mac?
 Plug 'godlygeek/tabular'
-" Plug 'plasticboy/vim-markdown'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 
@@ -50,9 +44,6 @@ augroup END
 let g:pandoc#modules#disabled = ["folding"]
 let g:pandoc#syntax#conceal#urls = 1
 
-" Mark .md files as markdown for highlighting
-" autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
-
 au BufRead *.md setlocal nospell
 
 " GUI Options
@@ -60,13 +51,6 @@ au BufRead *.md setlocal nospell
 ":set guioptions-=T  "remove toolbar
 :set guioptions-=r  "remove right-hand scroll bar
 :set guioptions-=L  "remove left-hand scroll bar
-
-"" Markdown
-"set conceallevel=2
-"let g:vim_markdown_conceal_code_blocks = 0
-""let g:vim_markdown_folding_level = 6
-"" Can't get it to start unfolded, just turn it off for ow
-"let g:vim_markdown_folding_disabled = 1
 
 " Papercolor
 set background=dark
@@ -103,7 +87,7 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR
 
 " Nerdtree
 " Mirror the NERDTree before showing it. This makes it the same on all tabs.
-nnoremap <C-n> :NERDTreeMirror<CR>:NERDTreeFocus<CR>
+" nnoremap <C-n> :NERDTreeMirror<CR>:NERDTreeFocus<CR>
 
 "zk
 command! -nargs=0 ZkIndex :call CocAction("runCommand", "zk.index", expand("%:p"))
@@ -129,9 +113,6 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gt <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-
-" Loca vimrc
-call lh#local_vimrc#munge('whitelist', $HOME.'/Wiki/Eberron')
 
 " Faster gutter updates for git
 set updatetime=100
