@@ -50,23 +50,11 @@ augroup END
 let g:pandoc#modules#disabled = ["folding"]
 let g:pandoc#syntax#conceal#urls = 1
 
-" Mark .md files as markdown for highlighting
-" autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
-
-au BufRead *.md setlocal nospell
-
 " GUI Options
 ":set guioptions-=m  "remove menu bar
 ":set guioptions-=T  "remove toolbar
 :set guioptions-=r  "remove right-hand scroll bar
 :set guioptions-=L  "remove left-hand scroll bar
-
-"" Markdown
-"set conceallevel=2
-"let g:vim_markdown_conceal_code_blocks = 0
-""let g:vim_markdown_folding_level = 6
-"" Can't get it to start unfolded, just turn it off for ow
-"let g:vim_markdown_folding_disabled = 1
 
 " Papercolor
 set background=dark
@@ -99,7 +87,9 @@ autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-tsserver', 'coc-sh', 'coc-yaml', 'coc-snippets', 'coc-markdownlint', 'coc-marketplace', 'coc-spell-checker']
 
 " Confirm selection on CR
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+" inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+" Choose first auto-complete on TAB
+inoremap <silent><expr> <TAB> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Nerdtree
 " Mirror the NERDTree before showing it. This makes it the same on all tabs.
@@ -117,9 +107,7 @@ nnoremap <leader>zj :ZkNew {"dir": "journal/daily"}<CR>
 let g:coc_filetype_map = { 'pandoc': 'markdown' }
 
 " Code Actions
-nmap <leader>a <Plug>(coc-codeaction-selected)
-vmap <leader>a <Plug>(coc-codeaction-selected)
-"nmap <leader>al <Plug>(coc-codeaction-line)
+nmap <leader>al <Plug>(coc-codeaction-line)
 nmap <CR> <Plug>(coc-definition)
 vmap <CR> <Plug>(coc-codeaction-selected)
 nnoremap <silent> K :call CocAction('doHover')<CR>
@@ -129,9 +117,6 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gt <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-
-" Loca vimrc
-call lh#local_vimrc#munge('whitelist', $HOME.'/Wiki/Eberron')
 
 " Faster gutter updates for git
 set updatetime=100
