@@ -26,17 +26,11 @@ Plug 'junegunn/fzf.vim'
 " Coc.nvim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Local vimrc
-Plug 'LucHermitte/lh-vim-lib'
-Plug 'LucHermitte/local_vimrc'
-
-" Ultisnips
-"Plug 'SirVer/ultisnips'
+" Snippets
 Plug 'honza/vim-snippets'
 
 " Make gx work on mac?
 Plug 'godlygeek/tabular'
-" Plug 'plasticboy/vim-markdown'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 
@@ -49,6 +43,8 @@ augroup pandoc_syntax
 augroup END
 let g:pandoc#modules#disabled = ["folding"]
 let g:pandoc#syntax#conceal#urls = 1
+
+au BufRead *.md setlocal nospell
 
 " GUI Options
 ":set guioptions-=m  "remove menu bar
@@ -93,7 +89,7 @@ inoremap <silent><expr> <TAB> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<C
 
 " Nerdtree
 " Mirror the NERDTree before showing it. This makes it the same on all tabs.
-nnoremap <C-n> :NERDTreeMirror<CR>:NERDTreeFocus<CR>
+" nnoremap <C-n> :NERDTreeMirror<CR>:NERDTreeFocus<CR>
 
 "zk
 command! -nargs=0 ZkIndex :call CocAction("runCommand", "zk.index", expand("%:p"))
@@ -127,6 +123,7 @@ set relativenumber
 
 " Hotkeys
 map <F4> :NERDTreeToggle<CR>
+map <F5> :call CocAction("runCommand", "markdownlint.fixAll")<CR>
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
