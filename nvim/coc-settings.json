@@ -3,6 +3,9 @@
   "suggest.invalidInsertCharacters": [],
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextCurrentLineOnly": true,
+  "go.goplsOptions": {
+    "formatting.gofumpt": true
+  },
 
   "languageserver": {
     "zk": {

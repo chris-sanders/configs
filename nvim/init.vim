@@ -131,7 +131,14 @@ set relativenumber
 
 " Hotkeys
 map <F4> :NERDTreeToggle<CR>
-map <F5> :call CocAction("runCommand", "markdownlint.fixAll")<CR>
+map <F5> :call CocAction("format")<CR>
+autocmd FileType markdown nnoremap <buffer> <F5> :call CocAction("runCommand", "markdownlint.fixAll")<CR>
+autocmd FileType go nnoremap <buffer> <F6> :silent call CocAction("runCommand", "editor.action.organizeImport")<CR>
+
+" Autocommands
+" Examples of auto organize and auto format for go files on write
+" autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
+" autocmd BufWritePre *.go :silent call CocAction('format')
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
