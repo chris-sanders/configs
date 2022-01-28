@@ -12,3 +12,6 @@ function set-kubeconfig {
 }
 
 set-kubeconfig
+
+# Configure sealed secrets
+export SEALED_SECRETS_CONTROLLER_NAMESPACE=sealed-secrets

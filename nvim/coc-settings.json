@@ -26,6 +26,7 @@
   "$PWD/.vim/snips"
   ],
   "cSpell.userWords": [
-    "Kubernetes"
+    "Kubernetes",
+    "Nodeport"
   ]
 }

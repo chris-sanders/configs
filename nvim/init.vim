@@ -34,6 +34,9 @@ Plug 'godlygeek/tabular'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 
+" Add a tag viewer
+Plug 'liuchengxu/vista.vim'
+
 call plug#end()
 " Done with plugins
 
@@ -107,6 +110,9 @@ nnoremap <leader>zj :ZkNew {"dir": "journal/daily"}<CR>
 " coc-markdownlint
 let g:coc_filetype_map = { 'pandoc': 'markdown' }
 
+" Vita tags
+let g:vista_default_executive = 'coc'
+
 " Code Actions
 nmap <leader>al <Plug>(coc-codeaction-line)
 nmap <CR> <Plug>(coc-definition)
@@ -137,6 +143,8 @@ set relativenumber
 " Hotkeys
 map <F4> :NERDTreeToggle<CR>
 map <F5> :call CocAction("format")<CR>
+map <F9> :Vista!!<CR>
+map <F10> :Vista finder fzf:coc<CR>
 autocmd FileType markdown nnoremap <buffer> <F5> :call CocAction("runCommand", "markdownlint.fixAll")<CR>
 autocmd FileType go nnoremap <buffer> <F6> :silent call CocAction("runCommand", "editor.action.organizeImport")<CR>
 
