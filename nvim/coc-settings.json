@@ -6,24 +6,31 @@
   "go.goplsOptions": {
     "formatting.gofumpt": true
   },
-
   "languageserver": {
     "zk": {
       "command": "zk",
-      "args": ["lsp"],
+      "args": [
+        "lsp"
+      ],
       //"args": ["lsp", "--log", "~/tmp/zk.log"],
       "trace.server": "messages",
-      "filetypes": ["markdown", "pandoc"]
+      "filetypes": [
+        "markdown",
+        "pandoc"
+      ]
     }
   },
+  "python.formatting.provider": "black",
+  "python.analysis.typeCheckingMode": "off",
+  //"python.formatting.blackPath": "",
   "markdownlint.config": {
     "default": true,
     "line_length": false,
     "MD018": false
   },
   "snippets.ultisnips.directories": [
-  "UltiSnips",
-  "$PWD/.vim/snips"
+    "UltiSnips",
+    "$PWD/.vim/snips"
   ],
   "cSpell.userWords": [
     "Kubernetes",

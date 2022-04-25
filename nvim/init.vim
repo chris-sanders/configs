@@ -83,7 +83,7 @@ let g:lightline = {
 autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 
 " Coc
-let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-tsserver', 'coc-sh', 'coc-yaml', 'coc-snippets', 'coc-markdownlint', 'coc-marketplace', 'coc-spell-checker', 'coc-go']
+let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-tsserver', 'coc-sh', 'coc-yaml', 'coc-snippets', 'coc-markdownlint', 'coc-marketplace', 'coc-spell-checker', 'coc-go', 'coc-pyright']
 
 " Tabs
 set tabstop=8
@@ -98,6 +98,9 @@ inoremap <silent><expr> <TAB> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<C
 " Nerdtree
 " Mirror the NERDTree before showing it. This makes it the same on all tabs.
 " nnoremap <C-n> :NERDTreeMirror<CR>:NERDTreeFocus<CR>
+
+" coc-pyright
+"let g:python3_host_prog="/opt/homebrew/bin/python3"
 
 "zk
 command! -nargs=0 ZkIndex :call CocAction("runCommand", "zk.index", expand("%:p"))
