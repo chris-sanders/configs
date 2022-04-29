@@ -6,6 +6,7 @@
   "go.goplsOptions": {
     "formatting.gofumpt": true
   },
+  "yaml.format.enable": true,
   "languageserver": {
     "zk": {
       "command": "zk",
