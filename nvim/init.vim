@@ -86,7 +86,7 @@ autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-tsserver', 'coc-sh', 'coc-yaml', 'coc-snippets', 'coc-markdownlint', 'coc-marketplace', 'coc-spell-checker', 'coc-go', 'coc-pyright']
 
 " Tabs
-set tabstop=8
+set tabstop=4
 set expandtab
 set shiftwidth=2
 
