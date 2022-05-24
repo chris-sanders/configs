@@ -40,7 +40,7 @@ report.list.sort = start-,due+,urgency-
 search.case.sensitive=no
 
 # Context
-context.work=+work or +meeting
+context.work=+work
 
 # Urgency
 urgency.age.coefficient=0.0
@@ -57,5 +57,5 @@ taskd.ca=\/home\/chris\/.task\/ca.cert.pem
 taskd.server=zarek.cc:53589
 taskd.credentials=sanders\/chris\/423b0e6c-7450-4c9d-89b5-c38af36ce04d
 report.all.sort=end-
-context.home=-work
-context=home
+context.personal=-work
+context=personal
