@@ -40,7 +40,6 @@ report.list.sort = start-,due+,urgency-
 search.case.sensitive=no
 
 # Context
-context.work=+work
 
 # Urgency
 urgency.age.coefficient=0.0
@@ -51,11 +50,14 @@ urgency.inherit=1
 urgency.blocking.coefficient=0.0
 # urgency.blocked.coefficient=0.0
 
-taskd.certificate=\/home\/chris\/.task\/chris.cert.pem
-taskd.key=\/home\/chris\/.task\/chris.key.pem
-taskd.ca=\/home\/chris\/.task\/ca.cert.pem
+taskd.certificate=./chris.cert.pem
+taskd.key=./chris.key.pem
+taskd.ca=./ca.cert.pem
 taskd.server=zarek.cc:53589
 taskd.credentials=sanders\/chris\/423b0e6c-7450-4c9d-89b5-c38af36ce04d
 report.all.sort=end-
-context.personal=-work
 context=personal
+context.personal.read=+personal
+context.personal.write=+personal
+context.work.read=+work
+context.work.write=+work
