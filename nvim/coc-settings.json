@@ -35,6 +35,8 @@
   ],
   "cSpell.userWords": [
     "Kubernetes",
-    "Nodeport"
+    "Nodeport",
+    "Velero",
+    "kubectl"
   ]
 }

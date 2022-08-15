@@ -35,6 +35,8 @@ report.in.description = Inbox
 report.in.filter = status:pending limit:page (+in)
 report.in.labels = ID,Description
 report.list.sort = start-,due+,urgency-
+report.list.columns = id,start.age,entry.age,depends.indicator,priority,project,recur.indicator,scheduled.countdown,due,until.remaining,description.count,urgency
+report.list.labels = ID,Active,Age,D,P,Project,R,Sch,Due,Until,Description,Urg
 
 # Misc
 search.case.sensitive=no
@@ -50,13 +52,13 @@ urgency.inherit=1
 urgency.blocking.coefficient=0.0
 # urgency.blocked.coefficient=0.0
 
-taskd.certificate=./chris.cert.pem
-taskd.key=./chris.key.pem
-taskd.ca=./ca.cert.pem
+taskd.certificate=\/Users\/chris\/.task\/chris.cert.pem
+taskd.key=\/Users\/chris\/.task\/chris.key.pem
+taskd.ca=\/Users\/chris\/.task\/ca.cert.pem
 taskd.server=zarek.cc:53589
 taskd.credentials=sanders\/chris\/423b0e6c-7450-4c9d-89b5-c38af36ce04d
 report.all.sort=end-
-context=personal
+context=work
 context.personal.read=+personal
 context.personal.write=+personal
 context.work.read=+work
