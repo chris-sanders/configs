@@ -6,6 +6,10 @@
   "go.goplsOptions": {
     "formatting.gofumpt": true
   },
+  //"go.goplsArgs": [
+  //  "-logfile=/tmp/gopls.log",
+  //  "-vv"
+  //],
   "yaml.format.enable": true,
   "languageserver": {
     "zk": {
