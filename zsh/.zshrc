@@ -8,6 +8,7 @@ export ZSH="/home/chris/.oh-my-zsh"
 plugins=(
 	git
     kubectl
+    fzf
 	csanders-common
 	csanders-fzf
 	csanders-k8s
