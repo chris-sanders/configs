@@ -7,6 +7,7 @@ export ZSH="/home/chris/.oh-my-zsh"
 # Which plugins would you like to load?
 plugins=(
 	git
+    git-prompt
     kubectl
     fzf
 	csanders-common
