@@ -18,3 +18,6 @@ if [ -z "$TMUX" ]
 then
     tmux new
 fi
+
+# Use aliases with watch
+alias watch="watch "
