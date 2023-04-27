@@ -37,6 +37,9 @@ Plug 'vim-pandoc/vim-pandoc-syntax'
 " Add a tag viewer
 Plug 'liuchengxu/vista.vim'
 
+" Copilot
+Plug 'github/copilot.vim'
+
 call plug#end()
 " Done with plugins
 
