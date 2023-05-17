@@ -38,6 +38,7 @@
     "$PWD/.vim/snips"
   ],
   "cSpell.userWords": [
+    "Authz",
     "Kubernetes",
     "Nodeport",
     "Velero",
