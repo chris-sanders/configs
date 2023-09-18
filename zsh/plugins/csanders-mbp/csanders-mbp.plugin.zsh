@@ -1,11 +1,17 @@
 # Install brew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+add_to_path_once() {
+    if [[ ":$PATH:" != *":$1:"* ]]; then
+        export PATH="$1:$PATH"
+    fi
+}
+
 # Add go to path
-export PATH=$PATH:/usr/local/go/bin
+add_to_path_once "/usr/local/go/bin"
 
 # Add zk (this is where it installs it)
-export PATH=$PATH:/Users/chris/go/bin
+add_to_path_once "Users/chris/go/bin"
 
 # Add krew to the path
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+add_to_path_once "$HOME/.krew/bin"
