@@ -130,6 +130,7 @@ let g:vista_default_executive = 'coc'
 
 " Code Actions
 nmap <leader>al <Plug>(coc-codeaction-line)
+nmap <leader>rn <Plug>(coc-rename)
 nmap <CR> <Plug>(coc-definition)
 vmap <CR> <Plug>(coc-codeaction-selected)
 nnoremap <silent> K :call CocAction('doHover')<CR>
