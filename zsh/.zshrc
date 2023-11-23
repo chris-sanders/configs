@@ -17,3 +17,10 @@ plugins=(
 	)
 
 source $ZSH/oh-my-zsh.sh
+
+# Automatically attach to tmux session, or create one if none exists
+if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+  # Attempt to attach to existing session
+  tmux attach -t default || tmux new -s default
+fi
+

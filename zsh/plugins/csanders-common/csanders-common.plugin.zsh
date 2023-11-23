@@ -14,9 +14,14 @@ export PROMPT="╭$PROMPT
 DISABLE_AUTO_TITLE=true
 
 # Auto tmux
-if [ -z "$TMUX" ]
-then
-    tmux new
+#if [ -z "$TMUX" ]
+#then
+#    tmux new
+#fi
+
+# Automatically attach to tmux session, or create one if none exists
+if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+  tmux new-session -A -s default
 fi
 
 # Use aliases with watch
