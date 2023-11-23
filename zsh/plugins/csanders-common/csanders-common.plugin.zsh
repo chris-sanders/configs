@@ -22,6 +22,7 @@ DISABLE_AUTO_TITLE=true
 # Automatically attach to tmux session, or create one if none exists
 if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
   tmux new-session -A -s default
+  exit
 fi
 
 # Use aliases with watch
